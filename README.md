@@ -46,7 +46,7 @@ We will determine the conditions and return the corresponding enum contant Strin
 **2.3.Scalene:** If the element at index 0 is NOT Equal to element at index 1 AND If the element at index 1 is NOT Equal to the element at index 2 AND If the element at index 2 is NOT Equal to the element at index 0 then it is of type Scalene. This condition need not be checked in the If loop as this could go in the last else block.
 
 
-#TriangleConstants.java
+# TriangleConstants.java
 
 Constants class
 
@@ -56,7 +56,7 @@ Two Enums defined in this class:
 - TriangleType
 - Error
 
-#TriangleTests.java
+# TriangleTests.java
 - JUnit test cases file containing set of test cases to test the methods from `Triangles.java` main program.
 
 
