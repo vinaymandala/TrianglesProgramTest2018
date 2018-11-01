@@ -25,6 +25,14 @@ public class TriangleTests {
 	}
 	
 	@Test
+	public void testForGetTriangleTypeMethod(){
+
+		float[] userInput = {2, 2, 2};
+		assertEquals(TriangleConstants.TriangleType.EQUILATERAL.toString(), triangle.getTriangleType(userInput));
+
+	}
+	
+	@Test
 	public void isocelesTest(){
 		String simulatedUserInput = "3" + TriangleConstants.lineSeparator
 			    + "4" + TriangleConstants.lineSeparator

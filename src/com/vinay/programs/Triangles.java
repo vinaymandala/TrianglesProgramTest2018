@@ -62,8 +62,6 @@ public class Triangles {
 		} catch(NoSuchElementException e){
 			//If exception occurs then it could be a case that the input entered by the User is not a number. Print the message and program will exit.
 			return TriangleConstants.Errors.NOT_A_NUMBER.getErrorValue();
-		} catch (Exception e) {
-			return TriangleConstants.Errors.NOT_A_NUMBER.getErrorValue();
 		}
 		
 	}
@@ -95,7 +93,7 @@ public class Triangles {
 	 * @param sorted float Array
 	 * @return String - Triangle Type Name or Validation Error String is returned
 	 */
-	private static String getTriangleType(float[] triangleSidesArr){
+	public String getTriangleType(float[] triangleSidesArr){
 		String triangleType = null;
 		
 		 if(triangleSidesArr[0] == triangleSidesArr[1] && triangleSidesArr[1] == triangleSidesArr[2]){
