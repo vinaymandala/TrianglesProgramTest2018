@@ -1,37 +1,64 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/vinaymandala/TrianglesProgramTest2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The Program is designed with Three classes:
+- **com.vinay.programs.TriangleConstants**
+- **com.vinay.programs.Triangles**
+- **com.vinay.test.TriangleTest**
 
-### Markdown
+# Triangles.java
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## main method
+- Used To trigger program execution
+- New instance of **Triangle** class is created here and the method  `getTriangleTypeBySides(...)` triggered with standard input stream.
 
-```markdown
-Syntax highlighted code block
+## getTriangleTypeBySides(InputStream is)
 
-# Header 1
-## Header 2
-### Header 3
+**Scope:** _Public_
+**Return Type:** _String - Informs the user about Triangle type based on input received or a validation error message is shown_
 
-- Bulleted
-- List
+- The program input is read from keyboard input using Scanner class in this method.
+- A float[] array to read the tokens from Scanner. It is instantiated to accomodate three elements for three sides of the triangle
+- The Scanner instance is defined using try-with-resources feature from Java7 version. This way we need not duplicate catch block related code with exceptions and this will automatically take care of closing the resources.
+- If the try-with-resources catches any exception then we will print the error and the Program will exit.
+- the float Array is populated using for loop to read first three numbers entered by the user.
+- We will validate the Inputs recieved using `validateInputs(...)` method which takes the populated float Array.
+- The `validateInputs(...)` returns an enum constant of type `Errors` and is saved in a variable of the same type.
+- If the value `Error` enum is  **NO_ERRORS_FOUND** then `getTriangleType(...)` method is called with argument float Array `userInput` else all other `Error` enum values received returned are validation related errors and will be returned back to the user for information and program will exit.
+- The `getTriangleType(...)` method will read the float Array elements and determines the type of Triange based on the user input.
 
-1. Numbered
-2. List
+## validateInputs(float[] userInputArr)
+**Scope:** _Public_
+**Return Type:** Errors enum
 
-**Bold** and _Italic_ and `Code` text
+- Validates the elements from `userInputArr` float Array to see if the elements are non-negative numbers and if it makes a triangle.
+- If no validation errors are found then an `Error1 enum of type NO_ERRORS_FOUND is returned
 
-[Link](url) and ![Image](src)
-```
+## getTriangleType(float[] triangleSidesArr)
+**Scope:** _Public Called from `getTriangleTypeBySides(...)`_
+**Return Type:** _String 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+We will determine the conditions and return the corresponding enum contant String value back to the Consile/Terminal window informing the user :
 
-### Jekyll Themes
+**2.1.Equilateral:** If the element at index 0 is equal to element at index 1 AND If the element at index 1 is equal to the element at index 2 then it is of type Equilateral.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vinaymandala/TrianglesProgramTest2018/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**2.2.Isosceles:** If the element at index 0 is equal to element at index 1 OR If the element at index 1 is equal to the element at index 2 OR If the element at index 2 is equal to the element at index 0 then it is of type Isosceles.
 
-### Support or Contact
+**2.3.Scalene:** If the element at index 0 is NOT Equal to element at index 1 AND If the element at index 1 is NOT Equal to the element at index 2 AND If the element at index 2 is NOT Equal to the element at index 0 then it is of type Scalene. This condition need not be checked in the If loop as this could go in the last else block.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+#TriangleConstants.java
+
+Constants class
+
+- Constants and enums from this class are used in the main program `Triangles.java` and  JUNIT test cases file `TrianglesTests.java`
+
+Two Enums defined in this class:
+- TriangleType
+- Error
+
+#TriangleTests.java
+- JUnit test cases file containing set of test cases to test the methods from `Triangles.java` main program.
+
+
+A constant is defined which store the line separator retrieved from System class properties as a String.
+
