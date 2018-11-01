@@ -47,9 +47,6 @@ We will determine the conditions and return the corresponding enum contant Strin
 
 
 # TriangleConstants.java
-
-Constants class
-
 - Constants and enums from this class are used in the main program `Triangles.java` and  JUNIT test cases file `TrianglesTests.java`
 
 Two Enums defined in this class:
@@ -58,7 +55,5 @@ Two Enums defined in this class:
 
 # TriangleTests.java
 - JUnit test cases file containing set of test cases to test the methods from `Triangles.java` main program.
-
-
 A constant is defined which store the line separator retrieved from System class properties as a String.
 
